@@ -1,0 +1,16 @@
+{
+  "name": "smfReader",
+  "version": "1.0.0",
+  "description": "Social Media Feeds Reader",
+  "main": "index.js",
+  "repository": "https://github.com/anthonytauro/smfReader.git",
+  "author": "Tony Tauro",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.4"
+  },
+  "scripts": {
+    "start": "node server/server.js",
+    "heroku-postbuild": "cd react-ui/ && npm install --only=dev && npm install && npm run build"
+  }  
+}
