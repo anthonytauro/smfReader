@@ -146,6 +146,16 @@ const writeUrls = (twid, urlsIn, cb) => {
 /*     req.end(); */
 }
 
+const writeUsers = (tweets) => {
+    if(Array.isArray(tweets)) {
+        tweets.forEach(tweet => {
+            writeUser(tweet.user)
+            writeHashtags(tweet.id, tweet.entities.hashtags)
+            writeUrls(tweet.id, tweet.entities.urls)
+        })
+    }
+}
+
 const writeTweets = (tweets) => {
     if(Array.isArray(tweets)) {
         tweets.forEach(tweet => {
@@ -156,15 +166,7 @@ const writeTweets = (tweets) => {
         })
     }
 }
-/* const writeUsers = (tweets) => {
-    if(Array.isArray(tweets)) {
-        tweets.forEach(tweet => {
-            writeUser(tweet.user)
-            writeHashtags(tweet.id, tweet.entities.hashtags)
-            writeUrls(tweet.id, tweet.entities.urls)
-        })
-    }
-} */
+
 module.exports = {
     readTweets,
     writeTweets,
